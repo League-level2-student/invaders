@@ -27,6 +27,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 	public static BufferedImage image;
 	public static boolean needImage = true;
 	public static boolean gotImage = false;
+	int gameScore = 0;
 	
 	
 	int currentState = MENU;
@@ -83,6 +84,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		g.setColor(Color.BLACK);
 		g.drawImage(image, 0, 0, LeagueInvaders.width, LeagueInvaders.height, null);
 		manager.draw(g);
+		gameScore = manager.score;
 		
 	}
 	
@@ -94,7 +96,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener{
 		g.drawString("Game Over", 100, 100);
 		g.setFont(instructionFont);
 		g.setColor(Color.YELLOW);
-		g.drawString("You killed " + manager.getScore() + " enemies", 125, 400);
+		g.drawString("You killed " + gameScore + " enemies", 125, 400);
 		g.setFont(instructionFont);
 		g.setColor(Color.YELLOW);
 		g.drawString("Press ENTER to restart", 85, 600);
